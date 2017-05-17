@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  </head>
+<body>
+
+  <div class="container">
+  <hr>
+  <hr>
+    <div class="row">
+      <div id="task" class="col-md-6 col-md-offset-3">
+        <%= link_to("Create new task", new_task_path, class: "create", id: "create") %>
+        <hr>
+        <% @tasks.each do |task| %>
+        <hr>
+        <h2><%= task.name %></h2>
+        <hr>
+        <p class="description"><%= task.description %></p>
+        <hr>
+        <%= link_to 'Show', task_path(task), class: "btn btn-primary", id: "show" %>
+        <%= link_to 'Delete', task_path(task), method: :delete, class: "btn btn-primary", id: "delete" %>
+        <%= link_to 'Edit task', edit_task_path(task), class: "btn btn-primary", id: "edit" %>
+        <hr>
+        <% end %>
+      </div>
+    </div>
+    <hr>
+    <hr>
+  </div>
+
+</body>
+</html>
+
